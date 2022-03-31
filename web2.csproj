@@ -136,6 +136,9 @@
     <Content Include="Views\Shared\UserTabMenu.cshtml" />
     <Content Include="Views\Profile\MyEvents.cshtml" />
     <Content Include="Views\Profile\Gallery.cshtml" />
+    <Content Include="Views\Profile\DeleteEvent.cshtml" />
+    <Content Include="Views\Profile\Event.cshtml" />
+    <Content Include="Views\Profile\EventGallery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
