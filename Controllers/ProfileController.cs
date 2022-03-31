@@ -9,6 +9,11 @@ namespace web2.Controllers
 {
 	public class ProfileController : Controller
 	{
+
+
+
+
+
 		// ----------------------------------------------------------- //
 		// Name: Gallery bloc
 		// ----------------------------------------------------------- //

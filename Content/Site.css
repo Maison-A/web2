@@ -4,8 +4,13 @@
     font-size: 1em;
     font-family: "Proxima Nova Extra Condensed",proxima-nova-extra-condensed,Helvetica,sans-serif;
 }
+.field-width1{ width: 31.5em; }
 
+.field-width2{ width: 20em; }
 
+.field-width3{ width: 15em; }
+
+.field-width4{ width: 9.50em; }
 
 #content-locked {
     border: 1px solid gray;

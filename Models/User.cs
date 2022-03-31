@@ -20,8 +20,13 @@ namespace web2.Models
 		public Image UserImage;
 		//this is closely related to an array - it's a list of objects
 		public List<Image> Images;
+		public List<Event> Events = new List<Event>();
 
 		// Determines if user is logged in - a "read only property procedure"
+		// ----------------------------------------------------------- //
+		// Name:
+		// Desc:
+		// ----------------------------------------------------------- //
 		public bool IsAuthenticated
 		{
 			// get is what makes read only - this property is critical to determining if logged in
@@ -33,7 +38,27 @@ namespace web2.Models
 			}
 		}
 
+
+
+		// ----------------------------------------------------------- //
+		// Name: GetEvents
+		// Desc:returns list of event objects
+		// ----------------------------------------------------------- //
+		public List<Event> GetEvents(long ID=0)
+        {
+            try
+            {
+				Database db = new Database();
+				return db.GetEvents(ID, this.UID);
+            }
+			catch(Exception ex) { throw new Exception(ex.Message); }
+        }
+
 		// enter new chunk of code 
+		// ----------------------------------------------------------- //
+		// Name:
+		// Desc:
+		// ----------------------------------------------------------- //
 		public sbyte AddGalleryImage(HttpPostedFileBase f)
 		{
 			try
@@ -54,7 +79,13 @@ namespace web2.Models
 			}
 			catch (Exception ex) { throw new Exception(ex.Message); }
 		}
-
+		
+		
+		
+		// ----------------------------------------------------------- //
+		// Name:
+		// Desc:
+		// ----------------------------------------------------------- //
 		public sbyte UpdatePrimaryImage()
 		{
 			try
@@ -76,7 +107,10 @@ namespace web2.Models
 		}
 
 
-
+		// ----------------------------------------------------------- //
+		// Name: 
+		// Desc:
+		// ----------------------------------------------------------- //
 		// a method to return user object  
 		public User Login()
 		{
@@ -89,7 +123,13 @@ namespace web2.Models
 			catch (Exception ex) { throw new Exception(ex.Message); }
 		}
 
+
+
 		// will return action type
+		// ----------------------------------------------------------- //
+		// Name:
+		// Desc:
+		// ----------------------------------------------------------- //
 		public User.ActionTypes Save()
 		{
 			try
@@ -108,6 +148,12 @@ namespace web2.Models
 			catch (Exception ex) { throw new Exception(ex.Message); }
 		}
 
+
+
+		// ----------------------------------------------------------- //
+		// Name:
+		// Desc:
+		// ----------------------------------------------------------- //
 		public bool RemoveUserSession()
 		{
 			try
@@ -118,6 +164,12 @@ namespace web2.Models
 			catch (Exception ex) { throw new Exception(ex.Message); }
 		}
 
+
+
+		// ----------------------------------------------------------- //
+		// Name:
+		// Desc:
+		// ----------------------------------------------------------- //
 		public User GetUserSession()
 		{
 			try
@@ -133,6 +185,12 @@ namespace web2.Models
 			catch (Exception ex) { throw new Exception(ex.Message); }
 		}
 
+
+
+		// ----------------------------------------------------------- //
+		// Name:
+		// Desc:
+		// ----------------------------------------------------------- //
 		public bool SaveUserSession()
 		{
 			try
@@ -142,7 +200,14 @@ namespace web2.Models
 			}
 			catch (Exception ex) { throw new Exception(ex.Message); }
 		}
+
+
+
 		// enum gives a numerical value an English name so we can understand what it means
+		// ----------------------------------------------------------- //
+		// Name:
+		// Desc:
+		// ----------------------------------------------------------- //
 		public enum ActionTypes
 		{
 			NoType = 0,
@@ -156,6 +221,3 @@ namespace web2.Models
 		}
 	}
 }
-///////////////////////////////////////////////////////////////////////////////
-//Spring 2021
-///////////////////////////////////////////////////////////////////////////////
