@@ -258,7 +258,11 @@ namespace web2.Controllers
 		public ActionResult MyEvents()
 		{
 			Models.User u = new Models.User();
+			// get currently logged in user - make sure they are logged in
 			u = u.GetUserSession();
+			if (u.IsAuthenticated)
+				u.Events = u.GetEvents();
+
 			return View(u);
 		}
 
