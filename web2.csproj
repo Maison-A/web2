@@ -143,6 +143,7 @@
     <Content Include="Views\Profile\DeleteEvent.cshtml" />
     <Content Include="Views\Profile\Event.cshtml" />
     <Content Include="Views\Profile\EventGallery.cshtml" />
+    <Content Include="Views\Home\Event.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

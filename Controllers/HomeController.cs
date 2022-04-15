@@ -68,7 +68,7 @@ namespace web2.Controllers
 				return Json(new { Status = -1 }); //error
 			}
 		}
-
+		// rate an event through ajax
 		[HttpPost]
 		public JsonResult RateEvent(long UID, long ID, long Rating)
 		{
