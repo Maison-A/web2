@@ -19,6 +19,7 @@ namespace web2.Models {
 		public ActionTypes ActionType = ActionTypes.NoType;
 		public bool IsActive = true;
 		public int AverageRating = 0;
+		public int TotalLikes = 0;
 
 		public Image PrimaryImage {
 			get {

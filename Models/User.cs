@@ -15,17 +15,22 @@ namespace web2.Models
 		public string UserID = string.Empty;
 		public string Password = string.Empty;
 		public string Email = string.Empty;
+		
 		// instantiating the actiontype datatype with no type so it swill allocate the mem
 		public ActionTypes ActionType = ActionTypes.NoType;
 		public Image UserImage;
+		
 		//this is closely related to an array - it's a list of objects
 		public List<Image> Images;
 		public List<Event> Events = new List<Event>();
 
-		// Determines if user is logged in - a "read only property procedure"
+		public List<Like> Likes;
+		public List<Rating> Ratings;
+
 		// ----------------------------------------------------------- //
 		// Name:
-		// Desc:
+		// Desc: Determines if user is logged in - a "read only property
+		// procedure"
 		// ----------------------------------------------------------- //
 		public bool IsAuthenticated
 		{
@@ -41,6 +46,57 @@ namespace web2.Models
 
 
 		// ----------------------------------------------------------- //
+		// Name:
+		// Desc:
+		// ----------------------------------------------------------- //
+		public bool DoesUserLike(Like.Types LikeType, long EventID)
+        {
+			try
+			{
+				foreach (Like l in this.Likes)
+				{
+					if (l.Type == LikeType && l.ID == EventID)
+					{
+						return true;
+					}
+
+				}
+				return false;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+        }
+
+
+
+		// ----------------------------------------------------------- //
+		// Name:
+		// Desc:
+		// ----------------------------------------------------------- //
+		public byte GetUserRating(Rating.Types RatingType, long EventID)
+		{
+			try
+			{
+				foreach (Rating r in this.Ratings)
+				{
+					if (r.Type == RatingType && r.ID == EventID)
+					{
+						return r.Rate;
+					}
+
+				}
+				return 0;
+			}
+			catch (Exception)
+			{
+				return 0;
+			}
+		}
+
+
+		// ----------------------------------------------------------- //
 		// Name: GetEvents
 		// Desc:returns list of event objects
 		// ----------------------------------------------------------- //
@@ -53,6 +109,8 @@ namespace web2.Models
             }
 			catch(Exception ex) { throw new Exception(ex.Message); }
         }
+
+
 
 		// enter new chunk of code 
 		// ----------------------------------------------------------- //

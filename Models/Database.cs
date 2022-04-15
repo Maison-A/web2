@@ -8,7 +8,10 @@ using System.Collections.Generic;
 namespace web2.Models {
     public class Database {
 
-
+		// ----------------------------------------------------------- //
+		// Name: 
+		// Desc:
+		// ----------------------------------------------------------- //
 
 		public int RateEvent(long UID, long ID, long Rating)
 		{
@@ -36,6 +39,12 @@ namespace web2.Models {
 			}
 			catch (Exception ex) { throw new Exception(ex.Message); }
 		}
+
+
+		// ----------------------------------------------------------- //
+		// Name: 
+		// Desc:
+		// ----------------------------------------------------------- //
 
 		public List<Rating> GetEventRatings(long UID)
 		{
@@ -76,6 +85,12 @@ namespace web2.Models {
 			}
 			catch (Exception ex) { throw new Exception(ex.Message); }
 		}
+
+
+		// ----------------------------------------------------------- //
+		// Name: 
+		// Desc:
+		// ----------------------------------------------------------- //
 
 		public List<Event> GetActiveEvents()
 		{
@@ -139,6 +154,12 @@ namespace web2.Models {
 			catch (Exception ex) { throw new Exception(ex.Message); }
 		}
 
+
+		// ----------------------------------------------------------- //
+		// Name: 
+		// Desc:
+		// ----------------------------------------------------------- //
+
 		public int ToggleEventLike(long UID, long ID)
 		{
 			try
@@ -164,6 +185,12 @@ namespace web2.Models {
 			catch (Exception ex) { throw new Exception(ex.Message); }
 		}
 
+
+
+		// ----------------------------------------------------------- //
+		// Name: 
+		// Desc:
+		// ----------------------------------------------------------- //
 		public List<Like> GetEventLikes(long UID)
 		{
 			try
@@ -202,8 +229,6 @@ namespace web2.Models {
 			}
 			catch (Exception ex) { throw new Exception(ex.Message); }
 		}
-
-
 
 
 
@@ -415,7 +440,8 @@ namespace web2.Models {
 						if (dr["EndDate"] != null) e.End = (DateTime)dr["EndDate"];
 
 						if (dr["IsActive"].ToString() == "N") e.IsActive = false;
-
+						// total likes counter for event
+						e.TotalLikes = (int)dr["TotalLikes"];
 						e.Location = new Location();
 						e.Location.Title = (string)dr["LocationTitle"];
 						e.Location.Description = (string)dr["LocationDesc"];
