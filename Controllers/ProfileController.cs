@@ -202,9 +202,6 @@ namespace web2.Controllers
 			return RedirectToAction("MyEvents"); //this should never happen
 		}
 
-
-
-
 		// ----------------------------------------------------------- //
 		// Name: Gallery bloc
 		// ----------------------------------------------------------- //

@@ -118,8 +118,12 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Database.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventContent.cs" />
+    <Compile Include="Models\HomeContent.cs" />
     <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\Like.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
