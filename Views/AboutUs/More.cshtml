@@ -1,0 +1,21 @@
+﻿@model web2.Models.User
+@{
+    ViewBag.Title = "More About Us";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <p>This is the more about section - we'd tell you more about @Model.FirstName @Model.LastName if we knew more</p>
+
+
+        <div>
+            <button class="" name="btnSubmit" value="back"><i class='fa fa-times'></i> close</button>
+        </div>
+
+
+
+
+
+        }

@@ -1,0 +1,44 @@
+﻿@model web2.Models.User
+@{
+    ViewBag.Title = "About Us";
+}
+<h2>@ViewBag.Title</h2>
+
+<style>
+    .user-image-container {
+        height: unset;
+    }
+</style>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <div>   
+        <p>Thanks for using our website. The contact information for the architecht of the site is below. Have a wonderful day!</p>
+            <div class="user-image-container">
+                <div>
+                    <img class="user-profile-thumbnail" src="@string.Concat("data:Image/",
+							    Model.UserImage.FileExtension, ";base64,",
+							    Model.UserImage.BytesBase64)" />
+                </div>
+                <div class="section">
+                    <div class="item">
+                        <div>@Html.Label(Model.FirstName)</div>
+                    </div>
+                    <div class="item">
+                        <div>@Html.Label(Model.LastName)</div>
+                    </div>
+                 </div>   
+                <div>
+                    <a href="mailto:@Model.Email">@Model.Email</a>
+                </div>
+            </div>
+    </div>
+
+
+    <div class="section">
+        <button class="button-action" name="btnSubmit" value="more"><i class='far fa-info-circle'></i> More</button>
+        <button class="" name="btnSubmit" value="close"><i class='fa fa-times'></i> close</button>
+    </div>
+
+}
+

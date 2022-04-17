@@ -17,7 +17,7 @@
     </div>
 
     <!--make the page d y n a m i c with a "code bloc" (at{})-->
-    @{ 
+    @{
         // prefece with project name, the snag the model from the project
         web2.Models.User uCurrent = new web2.Models.User();
         uCurrent = uCurrent.GetUserSession();
@@ -40,7 +40,11 @@
         <a id="icon-bar-signup" href="~/Profile/SignUp" title="Sign Up"><i class="fas fa-user-plus"></i></a>
     }
 
+    <a href="~/AboutUs/Index" title="About Us"><i class="far fa-info-circle"></i></a>
 </div>
+   
+    
+  
     <div id="workspace">
         @RenderBody()
     </div>
