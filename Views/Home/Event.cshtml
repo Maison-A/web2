@@ -24,7 +24,61 @@
     .bold {
         font-weight: bold;
     }
+
+    #report-ellipsis {
+        vertical-align: middle;
+        margin-left: 1em;
+    }
+
+    #report-panel {
+        display: none;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+        background-color: lightyellow;
+        border: 1px solid darkgrey;
+        -webkit-border-radius: 0.3em;
+        -moz-border-radius: 0.3em;
+        border-radius: 0.3em;
+    }
+
+    #report-close {
+        color: black;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        padding-top: 0.25em;
+        margin-left: 0.25em;
+    }
+
+        #report-close:hover, #report-ellipsis:hover {
+            color: red;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    #report-submitting, #report-submitted, #report-failed {
+        display: none;
+    }
+
+    #report-failed {
+        color: red;
+    }
+
+    .margin-right {
+        margin-right: 0.25em;
+    }
+
+    #fa-report-icon {
+        color: red;
+    }
+
 </style>
+
+
 
 <h2>@ViewBag.Title</h2>
 
@@ -48,6 +102,43 @@
         <div class="section">
             <button class="button-cancel" id="btnClose" name="btnSubmit" value="close"><i class='fa fa-times'></i> Close</button>
         </div>
+
+        if(Model.User.IsAuthenticated)
+        {
+            <span id="report-ellipsis" title="Report"><i class="far fa-ellipsis-v fa-2x ellipsis"></i></span>
+            <div id="report-panel">
+
+                <div id="report-content">
+                    <p>
+                        <i id="fa-report-icon" class="fas fa-info-circle fa-2x mrgin-right"></i>
+                        Report this as:
+                        <!-- remember, select is the tag for a dropdown-->
+                        <select id="report-list" name="lstReport">
+                            <option value="0">(Select)</option>
+                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.MisleadingorScam)">
+                                @web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.MisleadingorScam)
+                            </option>
+                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.Offensive)">
+                                @web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.Offensive)
+                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.SexuallyInappropriate)">
+                                @web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.SexuallyInappropriate)
+                            </option>
+                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.Spam)">
+                                @web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.Spam)
+                            </option>
+                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.Violent)">
+                                @web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.Violent)
+                            </option>
+                        </select>
+                        <span id="report-close" title="Close this panel">&times;</span>
+                    </p>
+                </div>
+                <div id="report-submitted"><p><i class="fal fa-check fa-2x margin-right"></i>Report Submitted</p></div>
+                <div id="report-failed"><p><i class="far fa-exclamation-triangle fa-2x margin-right"></i>Report Failed :(</p></div>
+            </div>
+        }
+
+
 
         if (Model.User.IsAuthenticated)
         {
@@ -121,7 +212,30 @@
 </div>
 
 <script>
-	$(document).ready(function () {
-		SetActiveMenus('home');
-	});
+    $(document).ready(function () {
+        SetActiveMenus('home');
+
+        // new report jquery
+        // when this is clicked, call toggle
+        $("#report-ellipsis").click(function () {
+            // call this div and fade toggle it at a speed
+            $("report-panel").fadeToggle("medium");
+        });
+    
+
+        $("#report-close").click(function () {
+        $("#report-failed").hide();
+        $("#report-panel").fadeToggle("medium");
+
+        });
+
+        $("#report-list").change(function () {
+            if ($("#report-list").val() != '0') {
+                $("#report-submitting").show();
+                // call function save report, pass in user, event and droplist
+                SaveReport(@Model.User.UID, @Model.Event.ID, $("#report-list").val());
+            }
+        });
+
+    });
 </script>

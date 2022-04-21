@@ -17,7 +17,7 @@
 				switch (ProblemType)
 				{
 					case ProblemTypes.MisleadingorScam:
-						return "Missleading or Scam";
+						return "Misleading or Scam";
 					case ProblemTypes.SexuallyInappropriate:
 						return "Sexually Inappropriate";
 					case ProblemTypes.Offensive:
@@ -37,7 +37,7 @@
 			switch (pt)
 			{
 				case ProblemTypes.MisleadingorScam:
-					return "Missleading or Scam";
+					return "Misleading or Scam";
 				case ProblemTypes.SexuallyInappropriate:
 					return "Sexually Inappropriate";
 				case ProblemTypes.Offensive:
