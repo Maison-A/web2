@@ -350,6 +350,17 @@ namespace web2.Controllers
 		{
 			Models.User u = new Models.User();
 
+			// DEBUG
+			//u.UserID = "jd123";
+			//u.Password = "password";
+			//u.FirstName = "john";
+			//u.LastName = "doe";
+			//u.Email = "johndoe@email.wiz";
+			//u.UID = 2;
+			//u.SaveUserSession();
+			//return RedirectToAction("Event", "Home", new { id = 1 });
+			//
+
 			return View(u);
 		}
 

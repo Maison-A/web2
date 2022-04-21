@@ -92,7 +92,7 @@ namespace web2.Controllers
 			try
 			{
 				Models.Database db = new Models.Database();
-				System.Threading.Thread.Sleep(3000);
+				//System.Threading.Thread.Sleep(3000);
 				bool b = false;
 				b = db.InsertReport(UID, IDToReport, ProblemID);
 				return Json(new { Status = b });

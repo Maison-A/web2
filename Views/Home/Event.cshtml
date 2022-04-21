@@ -112,26 +112,19 @@
                     <p>
                         <i id="fa-report-icon" class="fas fa-info-circle fa-2x mrgin-right"></i>
                         Report this as:
+                        
                         <!-- remember, select is the tag for a dropdown-->
                         <select id="report-list" name="lstReport">
                             <option value="0">(Select)</option>
-                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.MisleadingorScam)">
-                                @web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.MisleadingorScam)
-                            </option>
-                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.Offensive)">
-                                @web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.Offensive)
-                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.SexuallyInappropriate)">
-                                @web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.SexuallyInappropriate)
-                            </option>
-                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.Spam)">
-                                @web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.Spam)
-                            </option>
-                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.Violent)">
-                                @web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.Violent)
-                            </option>
+                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.MisleadingorScam)">@web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.MisleadingorScam)</option>
+                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.Offensive)">@web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.Offensive)</option>
+                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.SexuallyInappropriate)">@web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.SexuallyInappropriate)</option>
+                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.Spam)">@web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.Spam)</option>
+                            <option value="@Convert.ToInt32(web2.Models.Report.ProblemTypes.Violent)">@web2.Models.Report.GetProblemText(web2.Models.Report.ProblemTypes.Violent)</option>
                         </select>
                         <span id="report-close" title="Close this panel">&times;</span>
                     </p>
+                    <span id="report-submitting"><i class="fas fa-spinner fa-spin fa-2x margin-right"></i> Submitting report...</span>
                 </div>
                 <div id="report-submitted"><p><i class="fal fa-check fa-2x margin-right"></i>Report Submitted</p></div>
                 <div id="report-failed"><p><i class="far fa-exclamation-triangle fa-2x margin-right"></i>Report Failed :(</p></div>
